@@ -1,0 +1,120 @@
+
+
+/* Cover Letter Specific Styles */
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  color: var(--primary-dark);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.letter-content {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.letter-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.sender-info p, .recipient-info p {
+  margin-bottom: 0.25rem;
+}
+
+.recipient-info {
+  margin-bottom: 2rem;
+}
+
+.letter-body p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.letter-body ul {
+  margin: 1rem 0 1.5rem 2rem;
+}
+
+.letter-body li {
+  margin-bottom: 0.5rem;
+}
+
+.signature {
+  margin-top: 2rem;
+}
+
+.signature .name {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--primary);
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.action-button i {
+  margin-left: 0.5rem;
+}
+
+.action-button.secondary {
+  background-color: var(--white);
+  color: var(--primary-dark);
+  border: 1px solid var(--primary);
+}
+
+.action-button.secondary:hover {
+  background-color: var(--secondary);
+}
+
+.active {
+  background-color: var(--secondary);
+  color: var(--primary-dark);
+}
+
+/* Print styles */
+@media print {
+  .main-nav, .action-buttons, .main-footer {
+      display: none;
+  }
+  
+  .container {
+      padding: 0;
+  }
+  
+  .letter-content {
+      box-shadow: none;
+      padding: 0;
+  }
+  
+  body {
+      font-size: 12pt;
+  }
+}

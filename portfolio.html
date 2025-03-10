@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Felix Cobbinah</title>
+     <!-- Add favicon link here -->
+     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/portolio.css">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>Portfolio</h1>
+            <p>Showcasing my front-end development projects</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="cover-letter.html" class="nav-link">Cover Letter</a></li>
+                <li><a href="resume.html" class="nav-link">Resume</a></li>
+                <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+            </ul>
+        </nav>
+
+        <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+            <button class="filter-btn" data-filter="church">Faith-based</button>
+            <button class="filter-btn" data-filter="tools">Developer Tools</button>
+        </div>
+
+        <section class="portfolio-grid">
+            <!-- E-commerce Project -->
+            <div class="portfolio-item" data-category="ecommerce">
+                <div class="portfolio-img">
+                    <img src="assets/img/KAM.png" alt="E-commerce Project">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <h3>K.A.M E-commerce Platform</h3>
+                            <p>An artisan e-commerce platform sample created as a personal challenge</p>
+                            <div class="overlay-buttons">
+                                <a href="https://k-a-m-ecommerce-project.vercel.app/" class="overlay-btn">Live Demo</a>
+                                <a href="https://github.com/codeDevFC/K.A.M-eCommerce-project" class="overlay-btn">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>K.A.M E-commerce Platform</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Vercel</span>
+                    </div>
+                    <p>An artisan e-commerce platform with product listings, shopping cart functionality, and a streamlined checkout process.</p>
+                </div>
+            </div>
+
+            <!-- Bible Studies Resources Project -->
+            <div class="portfolio-item" data-category="church">
+                <div class="portfolio-img">
+                    <img src="assets/img/BS.png" alt="Bible Studies Resources">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <h3>Bible Studies Resources</h3>
+                            <p>A Bible Study Resource platform for a faith community</p>
+                            <div class="overlay-buttons">
+                                <a href="https://bible-studies-resources.netlify.app" class="overlay-btn">Live Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Bible Studies Resources</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Netlify</span>
+                    </div>
+                    <p>A comprehensive platform providing bible study resources for a faith community, featuring searchable content and study guides.</p>
+                </div>
+            </div>
+
+            <!-- Church Website Project 1 -->
+            <div class="portfolio-item" data-category="church">
+                <div class="portfolio-img">
+                    <img src="assets/img/stockholm-ghana-church.png" alt="Church Website">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <h3>Stockholm-Ghana SDA Church</h3>
+                            <p>A responsive website for the Stockholm-Ghana SDA Church</p>
+                            <div class="overlay-buttons">
+                                <a href="https://mychurch-webapp.netlify.app" class="overlay-btn">Live Site (Netlify)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Stockholm-Ghana SDA Church</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Responsive</span>
+                    </div>
+                    <p>A responsive church website featuring event countdowns, service information, and community resources for the Stockholm-Ghana SDA Church.</p>
+                </div>
+            </div>
+
+            <!-- Church Website Project 2 -->
+            <div class="portfolio-item" data-category="church">
+                <div class="portfolio-img">
+                    <img src="assets/img/stockholm-ghana-church.png" alt="Church App Page">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <h3>My Church App Page</h3>
+                            <p>An alternative version of the church website with additional features</p>
+                            <div class="overlay-buttons">
+                                <a href="https://my-church-app-page.vercel.app/" class="overlay-btn">Live Site (Vercel)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>My Church App Page</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Vercel</span>
+                    </div>
+                    <p>An enhanced version of the church website deployed on Vercel, featuring improved UI and additional functionality.</p>
+                </div>
+            </div>
+
+            <!-- Dev Tool Project -->
+            <div class="portfolio-item" data-category="tools">
+                <div class="portfolio-img">
+                    <img src="assets/img/dev-routine-todo.jpg" alt="Dev Routine Todo">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <h3>Dev-Tool Todo Routine</h3>
+                            <p>A productivity tool for developers to track tasks and manage workflows</p>
+                            <div class="overlay-buttons">
+                                <a href="https://codedevfc.github.io/Dev-Routine-Todo/" class="overlay-btn">Live Demo (GitHub)</a>
+                                <a href="https://dev-routine-todo-i2igd9it4-felix-cobbinahs-projects.vercel.app" class="overlay-btn">Live Demo (Vercel)</a>
+                                <a href="https://github.com/codeDevFC/Dev-Routine-Todo" class="overlay-btn">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>Dev-Tool Todo Routine</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">GitHub Pages</span>
+                        <span class="tech-tag">Vercel</span>
+                    </div>
+                    <p>A productivity tool designed specifically for developers to track tasks, manage development routines, and improve workflow efficiency.</p>
+                </div>
+            </div>
+
+            <!-- CV Webpage -->
+            <div class="portfolio-item" data-category="web">
+                <div class="portfolio-img">
+                    <img src="assets/img/cvSummary.png" alt="CV Webpage">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-content">
+                            <h3>CV Webpage summaryfor LOVALL</h3>
+                            <p>A clean, professional CV/resume webpage template</p>
+                            <div class="overlay-buttons">
+                                <a href="https://fcresumewebdev.vercel.app/" class="overlay-btn">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <h3>CV Webpage Summary</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Vercel</span>
+                    </div>
+                    <p>A clean, professional CV/resume webpage template designed for Lovall, showcasing professional information in an easily digestible format.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="developer-experience">
+            <h2>Web Development Experience</h2>
+            <p>As a front-end developer, I focus on creating clean, efficient code that delivers exceptional user experiences while maintaining fast loading times and smooth interactions. My goal is to build websites and applications that are not only visually appealing but also functional and accessible to all users.</p>
+            
+            <div class="experience-highlights">
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Clean Code</h3>
+                        <p>Writing well-structured, maintainable code with a focus on best practices and industry standards.</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Responsive Design</h3>
+                        <p>Mobile-first approach ensuring excellent user experiences across all devices and screen sizes.</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Performance Optimization</h3>
+                        <p>Optimizing site speed and performance for better user experience and engagement.</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Custom Functionality</h3>
+                        <p>Implementing custom JavaScript functionality and integrations to meet specific project requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2>Let's Work Together</h2>
+            <p>I'm passionate about creating exceptional web experiences and would love to discuss how I can contribute to your next project.</p>
+            <a href="contact.html" class="cta-button">Get In Touch</a>
+        </div>
+
+        <footer class="main-footer">
+            <div class="contact-info">
+                <p>Email: <a href="mailto:felixcobby@gmail.com">felixcobby@gmail.com</a></p>
+                <p>Phone: <a href="tel:+447907666278">+44 7907 666278</a></p>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/codeDevFC" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/felix-cobbinah-59903188" class="social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+    // Portfolio filtering functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Portfolio filtering functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        // Add click event to filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Filter portfolio items
+                portfolioItems.forEach(item => {
+                    const categories = item.getAttribute('data-category').split(' ');
+                    
+                    if (filterValue === 'all' || categories.includes(filterValue)) {
+                        item.classList.remove('hidden');
+                        // Add animation for smooth appearance
+                        item.style.opacity = '0';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                        }, 50);
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+        
+        // Portfolio item hover effects
+        portfolioItems.forEach(item => {
+            const img = item.querySelector('.portfolio-img img');
+            const overlay = item.querySelector('.portfolio-overlay');
+            
+            // Add subtle parallax effect on hover
+            item.addEventListener('mousemove', function(e) {
+                const xPos = (e.clientX - item.getBoundingClientRect().left) / item.offsetWidth;
+                const yPos = (e.clientY - item.getBoundingClientRect().top) / item.offsetHeight;
+                
+                img.style.transform = `scale(1.05) translate(${(xPos - 0.5) * 10}px, ${(yPos - 0.5) * 10}px)`;
+                overlay.style.background = `linear-gradient(${yPos * 45}deg, rgba(0, 172, 193, 0.7), rgba(0, 96, 100, 0.8))`;
+            });
+            
+            // Reset on mouse leave
+            item.addEventListener('mouseleave', function() {
+                img.style.transform = '';
+                overlay.style.background = '';
+            });
+        });
+    });
+    </script>
+</body>
+</html>
