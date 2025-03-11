@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Felix Cobbinah - Resume</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Include jsPDF and html2canvas separately for more control -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         /* Clean, modern styling optimized for PDF */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -193,18 +195,23 @@
         
         .portfolio-link {
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 15px;
             background-color: #4a6cf7;
             color: white;
-            padding: 8px 16px;
+            padding: 12px 30px;
             border-radius: 5px;
             text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(74, 108, 247, 0.2);
         }
         
         .portfolio-link:hover {
             background-color: #3a5ce4;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(74, 108, 247, 0.3);
         }
         
         .download-btn {
@@ -224,6 +231,7 @@
             gap: 8px;
             box-shadow: 0 4px 15px rgba(74, 108, 247, 0.3);
             transition: all 0.3s ease;
+            z-index: 1000;
         }
         
         .download-btn:hover {
@@ -238,6 +246,35 @@
             fill: white;
         }
         
+        /* Loading overlay */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #4a6cf7;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Print styles */
         @media print {
             body {
                 padding: 0;
@@ -250,108 +287,20 @@
                 padding: 20px;
             }
             
-            .download-btn {
+            .download-btn, .loading-overlay {
                 display: none;
             }
-
-            .direct-links {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-                margin-top: 15px;
-            }
-
-            .direct-links .portfolio-link {
-                margin-top: 0;
-                min-width: 140px;
-                text-align: center;
+            
+            .portfolio-link {
+                background-color: transparent;
+                color: #4a6cf7;
+                padding: 0;
+                box-shadow: none;
+                border-bottom: 1px solid #4a6cf7;
+                border-radius: 0;
                 font-size: 14px;
             }
-
-            @media (max-width: 600px) {
-                .direct-links {
-                    flex-direction: column;
-                    align-items: center;
-                }
-                
-                .direct-links .portfolio-link {
-                    width: 80%;
-                }
-            }
-
-            .portfolio-link {
-            display: inline-block;
-            margin-top: 15px;
-            background-color: #4a6cf7;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(74, 108, 247, 0.2);
         }
-
-            .portfolio-link:hover {
-            background-color: #3a5ce4;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(74, 108, 247, 0.3);
-            }
-
-            .portfolio-link {
-                display: inline-block;
-                margin-top: 15px;
-                background-color: #4a6cf7;
-                color: white;
-                padding: 12px 30px;
-                border-radius: 5px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 16px;
-                letter-spacing: 0.5px;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 6px rgba(74, 108, 247, 0.2);
-            }
-
-            .portfolio-link:hover {
-                background-color: #3a5ce4;
-                transform: translateY(-3px);
-                box-shadow: 0 6px 12px rgba(74, 108, 247, 0.3);
-            }
-
-            /* Special style for printed version */
-            @media print {
-                .portfolio-link {
-                    background-color: transparent;
-                    color: #4a6cf7;
-                    padding: 0;
-                    box-shadow: none;
-                    border-bottom: 1px solid #4a6cf7;
-                    border-radius: 0;
-                    font-size: 14px;
-                }
-                
-                .footer p {
-                    margin-bottom: 5px;
-                }
-                
-                /* Add a note for printed version */
-                .footer::after {
-                    content: "Visit this link for my complete portfolio and project details";
-                    display: block;
-                    font-size: 12px;
-                    color: #666;
-                    margin-top: 5px;
-                    font-style: italic;
-                }
-            }
-
-
-
-                    }
     </style>
 </head>
 <body>
@@ -489,23 +438,9 @@
         </div>
         
         <div class="footer">
-          <p>For a complete portfolio with detailed project information, please visit:</p>
-          
-          <div class="footer">
             <p>For a complete portfolio with detailed project information, please visit:</p>
             <a href="https://fccv-web-dev.vercel.app/" class="portfolio-link">fccv-web-dev.vercel.app</a>
         </div>
-        
-
-        
-         <!-- <div class="direct-links">
-              <a href="https://fccv-web-dev.vercel.app/" class="portfolio-link" target="_blank">View Portfolio</a>
-              <a href="https://k-a-m-ecommerce-project.vercel.app/" class="portfolio-link" style="background-color: #34d399;" target="_blank">E-Commerce Demo</a>
-              <a href="https://codedevfc.github.io/Dev-Routine-Todo/" class="portfolio-link" style="background-color: #f59e0b;" target="_blank">Todo App</a>
-              <a href="https://mychurch-webapp.netlify.app" class="portfolio-link" style="background-color: #ef4444;" target="_blank">Church Website</a>
-          </div>-->
-      </div>
-      
     </div>
     
     <button id="downloadPDF" class="download-btn">
@@ -517,36 +452,92 @@
         Download PDF
     </button>
     
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+    
     <script>
+        // Make jsPDF available globally
+        window.jsPDF = window.jspdf.jsPDF;
+        
         document.getElementById('downloadPDF').addEventListener('click', function() {
-            // Define PDF options
-            const options = {
-                margin: 10,
-                filename: 'Felix_Cobbinah_Resume.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                pagebreak: { avoid: ['tr', '.project-item', '.experience-item', '.education-item'] }
-            };
+            // Show loading overlay
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.style.display = 'flex';
             
-            // Generate PDF
+            // Get the resume element
             const resumeElement = document.getElementById('resume');
             
-            // Temporarily modify links for PDF
-            const links = resumeElement.querySelectorAll('a');
-            links.forEach(link => {
-                link.style.color = '#4a6cf7';
-                link.style.textDecoration = 'none';
-            });
-            
-            html2pdf().set(options).from(resumeElement).save().then(() => {
-                // Restore links after PDF generation
-                links.forEach(link => {
-                    link.style.color = '';
-                    link.style.textDecoration = '';
+            // Wait a moment to ensure the loading overlay is visible
+            setTimeout(function() {
+                // Create a new PDF document
+                const doc = new jsPDF({
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait'
                 });
-            });
+                
+                // Add metadata
+                doc.setProperties({
+                    title: 'Felix Cobbinah - Resume',
+                    subject: 'Front End Developer Resume',
+                    author: 'Felix Cobbinah',
+                    keywords: 'resume, front end, developer',
+                    creator: 'PDF Generator'
+                });
+                
+                // Use html2canvas to capture the resume
+                html2canvas(resumeElement, {
+                    scale: 2,
+                    useCORS: true,
+                    logging: false,
+                    allowTaint: true,
+                    backgroundColor: '#ffffff'
+                }).then(function(canvas) {
+                    // Get canvas dimensions
+                    const imgData = canvas.toDataURL('image/jpeg', 1.0);
+                    const imgWidth = 210; // A4 width in mm
+                    const pageHeight = 295; // A4 height in mm
+                    const imgHeight = canvas.height * imgWidth / canvas.width;
+                    let heightLeft = imgHeight;
+                    let position = 0;
+                    
+                    // Add first page
+                    doc.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                    
+                    // Add subsequent pages if needed
+                    while (heightLeft > 0) {
+                        position = heightLeft - imgHeight;
+                        doc.addPage();
+                        doc.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+                        heightLeft -= pageHeight;
+                    }
+                    
+                    // Save the PDF
+                    doc.save('Felix_Cobbinah_Resume.pdf');
+                    
+                    // Hide loading overlay
+                    loadingOverlay.style.display = 'none';
+                }).catch(function(error) {
+                    console.error('Error generating PDF:', error);
+                    alert('There was an error generating the PDF. Please try again.');
+                    loadingOverlay.style.display = 'none';
+                });
+            }, 100);
         });
     </script>
 </body>
 </html>
+
+
+
+
+      <!-- 
+        <div class="direct-links">
+              <a href="https://fccv-web-dev.vercel.app/" class="portfolio-link" target="_blank">View Portfolio</a>
+              <a href="https://k-a-m-ecommerce-project.vercel.app/" class="portfolio-link" style="background-color: #34d399;" target="_blank">E-Commerce Demo</a>
+              <a href="https://codedevfc.github.io/Dev-Routine-Todo/" class="portfolio-link" style="background-color: #f59e0b;" target="_blank">Todo App</a>
+              <a href="https://mychurch-webapp.netlify.app" class="portfolio-link" style="background-color: #ef4444;" target="_blank">Church Website</a>
+          </div>
+          -->
